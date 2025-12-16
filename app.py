@@ -1,11 +1,17 @@
-import domain_cleaner
-from domain_cleaner import DomainCleaner
-
 import streamlit as st
 import pandas as pd
 import numpy as np
 from joblib import load
 import plotly.graph_objects as go
+
+# Import modul custom kamu
+# Pastikan file domain_cleaner.py ada di GitHub!
+try:
+    import domain_cleaner
+    from domain_cleaner import DomainCleaner
+except ImportError:
+    st.error("File 'domain_cleaner.py' tidak ditemukan. Pastikan file ini di-upload ke GitHub.")
+    st.stop()
 
 # =========================
 # CONFIG
