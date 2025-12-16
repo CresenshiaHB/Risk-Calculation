@@ -292,8 +292,10 @@ if submitted:
         "CHCSCNC1": skin_cancer,
         "CHCOCNC1": other_cancer
     }])
-
-    prob = model.predict_proba(user_df)[0, 1]
+    try:
+        prob = model.predict_proba(user_df)[0, 1]
+    except:
+        prob = float(model.predict(user_df)[0])
     risk = probability_to_risk(prob)
 
     st.divider()
